@@ -48,8 +48,16 @@ export const getALLEmployee = async (req, res) => {
 export const updateEmployee = async (req, res) => {
   try {
     const id = req.params.id;
-    const data = req.body;
-    const response = await t_employeeService.update(id, data);
+    const response = await t_employeeService.update(id, {
+      f_Id: req.body.Id,
+      f_Image: req.body.Image,
+      f_Name: req.body.Name,
+      f_Email: req.body.Email,
+      f_Mobile: req.body.Mobile,
+      f_Designation: req.body.Designation,
+      f_gender: req.body.gender,
+      f_Course: req.body.Course,
+    });
     return res.status(201).json({
       success: true,
       message: "Successfully Updated All employee Data",

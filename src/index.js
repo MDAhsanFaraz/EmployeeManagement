@@ -11,10 +11,10 @@ app.use("/api", apiRoutes);
 
 dotenv.config();
 
-// const PORT = process.env.PORT;
+const PORT = process.env.PORT;
 
 app.listen(3000, async () => {
-  console.log(`server started at PORT-`);
+  console.log(`server started at PORT-${PORT}`);
   await connect();
   console.log("Mongo db connected");
 });
