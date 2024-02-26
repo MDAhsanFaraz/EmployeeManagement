@@ -31,5 +31,14 @@ class t_EmployeeService {
       throw error;
     }
   }
+  async delete(id) {
+    try {
+      const response = await this.t_employeeRepository.destroy(id);
+      return response;
+    } catch (error) {
+      console.log("something went wrong at service layer");
+      throw error;
+    }
+  }
 }
 export default t_EmployeeService;

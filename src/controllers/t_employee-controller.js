@@ -60,7 +60,26 @@ export const updateEmployee = async (req, res) => {
     });
     return res.status(201).json({
       success: true,
-      message: "Successfully Updated All employee Data",
+      message: "Successfully Updated employee Data",
+      data: response,
+      err: {},
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Something went wrong at controller",
+      data: {},
+      err: error,
+    });
+  }
+};
+export const DeleteEmployee = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const response = t_employeeService.delete(id);
+    return res.status(201).json({
+      success: true,
+      message: "Successfully Deleted  employee Data",
       data: response,
       err: {},
     });
